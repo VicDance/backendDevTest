@@ -1,0 +1,7 @@
+In order to add the generated classes to the actual project, I did some steps outside the dockerfile:
+    1. docker build --target builder -t my-api-generator .
+    2. docker create --name temp my-api-generator
+    3. docker cp temp:/app/generated-server ./generated-server
+    4. docker rm temp
+
+Following these steps I got the generated classes into my actual code.

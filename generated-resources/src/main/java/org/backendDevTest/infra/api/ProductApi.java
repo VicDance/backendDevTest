@@ -3,10 +3,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-package org.test.api;
+package org.backendDevTest.infra.api;
 
-import org.test.model.ProductDetailBasic;
-import org.test.model.ProductFullDetail;
+import org.backendDevTest.infra.model.ProductDetailBasic;
+import org.backendDevTest.infra.model.ProductFullDetail;
 import io.swagger.v3.oas.annotations.ExternalDocumentation;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -33,7 +33,7 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-08-28T08:57:53.930059333Z[Etc/UTC]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-08-28T12:17:15.294568502Z[Etc/UTC]")
 @Validated
 @Tag(name = "product", description = "the product API")
 public interface ProductApi {

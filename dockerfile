@@ -18,17 +18,13 @@ COPY --from=bundler /app/openapi.yaml .
 RUN java -jar /openapi-generator-cli.jar generate \
     -i openapi.yaml \
     -g spring \
-    -o generated-server \
-    --api-package org.test.api \
-    --model-package org.test.model
-
-FROM openjdk:17-jdk-slim AS export-code
-WORKDIR /app
-COPY --from=generator /app/generated-server ./generated-server
+    -o generated-resources \
+    --api-package org.backendDevTest.infra.api \
+    --model-package org.backendDevTest.infra.model
 
 FROM maven:3.9.6-eclipse-temurin-17 AS build
 WORKDIR /src
-COPY --from=builder /app/generated-server .
+COPY --from=builder /app/generated-resources .
 RUN mvn clean package -DskipTests
 
 FROM eclipse-temurin:17-jre

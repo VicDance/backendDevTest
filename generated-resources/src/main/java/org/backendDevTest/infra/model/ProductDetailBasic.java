@@ -1,4 +1,4 @@
-package org.test.model;
+package org.backendDevTest.infra.model;
 
 import java.net.URI;
 import java.util.Objects;
@@ -20,7 +20,7 @@ import javax.annotation.Generated;
  */
 
 @Schema(name = "ProductDetailBasic", description = "Product detail")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-08-28T08:57:53.930059333Z[Etc/UTC]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-08-28T12:17:15.294568502Z[Etc/UTC]")
 public class ProductDetailBasic {
 
   private String id;

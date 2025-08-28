@@ -19,10 +19,11 @@ services:
   simulado:
     image : ldabiralai/simulado:latest
     ports:
-      - "3001:80"
+      - "5000:80"
     volumes:
       - ./shared/simulado:/app
     command: ./bin/simulado -f /app/mocks.json
+    platform: linux/amd64
   k6:
     image: loadimpact/k6:0.28.0
     ports:

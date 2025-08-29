@@ -19,7 +19,7 @@ services:
   simulado:
     image : ldabiralai/simulado:latest
     ports:
-      - "5000:80"
+      - "3001:80"
     volumes:
       - ./shared/simulado:/app
     command: ./bin/simulado -f /app/mocks.json
@@ -34,3 +34,10 @@ services:
       - K6_OUT=influxdb=http://influxdb:8086/k6
     extra_hosts:
       - "host.docker.internal:host-gateway"
+  backend:
+    build: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      - influxdb
+      - grafana

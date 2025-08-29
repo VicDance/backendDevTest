@@ -20,7 +20,7 @@ import jakarta.annotation.Generated;
  */
 
 @Schema(name = "ProductFullDetail", description = "Product detail")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-08-28T14:57:35.936267+02:00[Europe/Madrid]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-08-29T11:21:00.996791+02:00[Europe/Madrid]")
 public class ProductFullDetail {
 
   private String id;

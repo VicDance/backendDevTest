@@ -4,6 +4,7 @@ WORKDIR /app
 COPY pom.xml .
 COPY *.yaml .
 COPY src ./src
+COPY shared/simulado/mocks.json shared/simulado/mocks.json
 
 RUN mvn clean package spring-boot:repackage -DskipTests
 

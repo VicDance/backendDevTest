@@ -23,7 +23,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SimilarProductDetails'
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProductDetail'
         '404':
           description: Product Not found
 
@@ -61,23 +63,18 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ProductDetailBasic'
+                $ref: '#/components/schemas/ProductDetail'
         '404':
           description: Product Not found
 
 components:
   schemas:
-    SimilarProductDetails:
-      type: array
-      items:
-        $ref: './similarProducts.yaml#/components/schemas/ProductDetail'
-      description: List of similar products with full details
-    ProductFullDetail:
+    ProductDetail:
+      type: object
       $ref: './similarProducts.yaml#/components/schemas/ProductDetail'
+      description: List of similar products with full details
     SimilarProductIds:
       type: array
       items:
         type: string
       description: List of similar product IDs
-    ProductDetailBasic:
-      $ref: './existingApis.yaml#/components/schemas/ProductDetail'

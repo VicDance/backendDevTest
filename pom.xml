@@ -53,6 +53,13 @@
             <resource>
                 <directory>src/main/resources</directory>
             </resource>
+            <resource>
+                <directory>shared/simulado</directory>
+                <targetPath>.</targetPath>
+                <includes>
+                    <include>mocks.json</include>
+                </includes>
+            </resource>
         </resources>
 
         <plugins>

@@ -1,5 +1,6 @@
 package org.backendDevTest.infra.repository;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.annotation.PostConstruct;
@@ -38,14 +39,19 @@ public class MockRepository {
                     similarIdsBodies.put(path.split("/product/")[1].replace("/similarids", ""), body);
                 } else if (path.endsWith("/similarProducts")) {
                     productBodies.put(path.split("/product/")[1].replace("/similarProducts", ""), body);
-                    System.out.println("body " + body);
                 } else if (path.matches("/product/\\d+")) {
+                    productBodies.put(path.split("/product/")[1], body);
+                } else  {
                     productBodies.put(path.split("/product/")[1], body);
                 }
             }
         } catch (Exception e) {
             e.getStackTrace();
         }
+    }
+
+    public String getAllProducts() throws JsonProcessingException {
+        return productBodies.values().toString();
     }
 
     public String getProduct(String id) {

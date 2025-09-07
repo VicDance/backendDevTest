@@ -6,19 +6,27 @@ import org.backendDevTest.infra.model.ProductDetail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.ObjectUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/product")
+@CrossOrigin()
 public class ProductApiControllerImpl implements ProductApi {
 
     @Autowired
     private ProductService productService;
+
+    @Override
+    @GetMapping()
+    public ResponseEntity<List<ProductDetail>> getAllProducts() {
+        try {
+            return ResponseEntity.ok(productService.getProducts());
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     @Override
     @GetMapping("/{productId}")

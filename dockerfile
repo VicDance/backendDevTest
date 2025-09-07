@@ -13,6 +13,6 @@ WORKDIR /app
 
 COPY --from=build /app/target/*.jar backendDevTest.jar
 
-EXPOSE 5000
+EXPOSE 5000 5005
 
 CMD ["java", "-jar", "backendDevTest.jar", "--server.port=5000", "--server.address=0.0.0.0"]
